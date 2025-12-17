@@ -34,13 +34,22 @@ Thinking "skip TDD just this once"? Stop. That's rationalization.
 NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST
 ```
 
-Write code before the test? Delete it. Start over.
+Write code before the test? Discard it. Start over.
 
 **No exceptions:**
 - Don't keep it as "reference"
 - Don't "adapt" it while writing tests
 - Don't look at it
-- Delete means delete
+- Discard means discard
+
+**Clarification:** "Discard" means revert uncommitted changes, not delete files.
+
+If you've written implementation code before writing tests:
+- Use `git checkout <file>` to revert changes
+- Or `git stash` if you want to reference later
+- Do NOT use `rm` to delete files
+
+The principle: Don't keep the implementation in your head while writing tests. Start fresh so tests drive the design.
 
 Implement fresh from tests. Period.
 
@@ -228,7 +237,7 @@ Automated tests are systematic. They run the same way every time.
 **"Deleting X hours of work is wasteful"**
 
 Sunk cost fallacy. The time is already gone. Your choice now:
-- Delete and rewrite with TDD (X more hours, high confidence)
+- Discard and rewrite with TDD (X more hours, high confidence)
 - Keep it and add tests after (30 min, low confidence, likely bugs)
 
 The "waste" is keeping code you can't trust. Working code without real tests is technical debt.
@@ -262,7 +271,7 @@ Tests-first force edge case discovery before implementing. Tests-after verify yo
 | "Tests after achieve same goals" | Tests-after = "what does this do?" Tests-first = "what should this do?" |
 | "Already manually tested" | Ad-hoc ≠ systematic. No record, can't re-run. |
 | "Deleting X hours is wasteful" | Sunk cost fallacy. Keeping unverified code is technical debt. |
-| "Keep as reference, write tests first" | You'll adapt it. That's testing after. Delete means delete. |
+| "Keep as reference, write tests first" | You'll adapt it. That's testing after. Discard means discard. |
 | "Need to explore first" | Fine. Throw away exploration, start with TDD. |
 | "Test hard = design unclear" | Listen to test. Hard to test = hard to use. |
 | "TDD will slow me down" | TDD faster than debugging. Pragmatic = test-first. |
@@ -285,7 +294,7 @@ Tests-first force edge case discovery before implementing. Tests-after verify yo
 - "TDD is dogmatic, I'm being pragmatic"
 - "This is different because..."
 
-**All of these mean: Delete code. Start over with TDD.**
+**All of these mean: Discard code (git checkout/stash). Start over with TDD.**
 
 ## Example: Bug Fix
 
