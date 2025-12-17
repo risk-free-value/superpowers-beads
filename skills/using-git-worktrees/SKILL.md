@@ -3,6 +3,10 @@ name: using-git-worktrees
 description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification
 ---
 
+> **DEPRECATION NOTICE:** For beads-integrated workflows, use **multi-agent-coordination** skill instead. Git worktrees create separate .beads/ directories that can diverge and cause merge conflicts.
+>
+> Use this skill only if you need true environment isolation AND are not using beads.
+
 # Using Git Worktrees
 
 ## Overview

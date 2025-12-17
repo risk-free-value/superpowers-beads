@@ -3,6 +3,10 @@ name: writing-plans
 description: Use when design is complete and you need detailed implementation tasks for engineers with zero codebase context - creates comprehensive implementation plans with exact file paths, complete code examples, and verification steps assuming engineer has minimal domain knowledge
 ---
 
+> **DEPRECATION NOTICE:** For beads-integrated workflows, use the **plan-to-beads** skill instead. This skill creates markdown implementation plans; plan-to-beads creates self-documenting beads that persist across sessions and survive context compaction.
+>
+> Use this skill only if you're NOT using beads for issue tracking.
+
 # Writing Plans
 
 ## Overview
