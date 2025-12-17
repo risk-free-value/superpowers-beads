@@ -46,6 +46,37 @@ git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
 
 Or ask: "This branch split from main - is that correct?"
 
+### Step 2.5: Beads Completion
+
+**Before presenting options, close beads:**
+
+1. Close all in_progress tasks for this work:
+   ```bash
+   bd list --status in_progress --json
+   # For each task:
+   bd close <task-id> --reason "Complete"
+   ```
+
+2. Close the epic (if applicable):
+   ```bash
+   bd close <epic-id> --reason "Feature complete, ready to merge"
+   ```
+
+3. Stage .beads/ for commit:
+   ```bash
+   git add .beads/
+   ```
+
+4. Ask before proceeding:
+   ```
+   Ready to complete? Beads status:
+   - Closed: [list tasks closed]
+   - Epic: [epic-id] closed
+   - .beads/ staged for commit
+
+   [Proceed / Review changes]
+   ```
+
 ### Step 3: Present Options
 
 Present exactly these 4 options:
@@ -74,7 +105,7 @@ git checkout <base-branch>
 # Pull latest
 git pull
 
-# Merge feature branch
+# Merge feature branch (includes .beads/ from Step 2.5)
 git merge <feature-branch>
 
 # Verify tests on merged result
@@ -84,11 +115,17 @@ git merge <feature-branch>
 git branch -d <feature-branch>
 ```
 
+**Note:** .beads/ is included in the merge from Step 2.5.
+
 Then: Cleanup worktree (Step 5)
 
 #### Option 2: Push and Create PR
 
 ```bash
+# Commit any staged changes (including .beads/ from Step 2.5)
+git status  # Verify .beads/ is staged
+git commit -m "chore: update beads state"  # If needed
+
 # Push branch
 git push -u origin <feature-branch>
 
@@ -102,6 +139,8 @@ gh pr create --title "<title>" --body "$(cat <<'EOF'
 EOF
 )"
 ```
+
+**Note:** .beads/ is included in the push from Step 2.5.
 
 Then: Cleanup worktree (Step 5)
 
