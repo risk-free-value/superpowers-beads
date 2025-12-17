@@ -95,6 +95,46 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 **The agent checks for relevant skills before any task.** Mandatory workflows, not suggestions.
 
+## Beads Integration
+
+This fork integrates with [Beads](https://github.com/anthropics/beads) for persistent task tracking across sessions.
+
+### Requirements
+
+- Beads CLI (`bd`) installed and configured
+- Beads Viewer (`bv`) for planning suggestions
+- User skills at `~/.claude/skills/beads/` and `~/.claude/skills/using-bv/`
+
+### New Workflow
+
+1. **Session Start** - Checks `bd ready` and `bd list --status in_progress` BEFORE skill selection
+2. **Brainstorming** - Creates design doc AND bd epic
+3. **Plan to Beads** - Converts design to granular, self-documenting beads (replaces markdown plans)
+4. **Execution** - Driven by bd tasks, updates status throughout
+5. **Code Review** - Verifies bd acceptance criteria
+6. **Completion** - Closes bd issues, commits .beads/
+
+### Key Differences from Base Superpowers
+
+| Base Superpowers | With Beads |
+|-----------------|------------|
+| Markdown implementation plans | Beads track implementation |
+| TodoWrite for all tracking | TodoWrite for session, Beads for persistence |
+| Git worktrees for isolation | Beads coordination for multi-agent |
+| Auto-commits | Asks before committing |
+
+### New Skills
+
+- **session-start-with-beads** - Session start protocol checking beads first
+- **plan-to-beads** - Convert design to granular, self-documenting beads
+- **beads-checkpoint** - Compaction survival at 70%+ token usage
+- **multi-agent-coordination** - Replace git-worktrees with beads coordination
+
+### Deprecated Skills (for beads workflows)
+
+- **writing-plans** - Use plan-to-beads instead
+- **using-git-worktrees** - Use multi-agent-coordination instead
+
 ## What's Inside
 
 ### Skills Library
