@@ -48,6 +48,7 @@ Skip any step = lying, not verifying
 | Regression test works | Red-green cycle verified | Test passes once |
 | Agent completed | VCS diff shows changes | Agent reports "success" |
 | Requirements met | Line-by-line checklist | Tests passing |
+| BD task complete | All acceptance criteria verified | "Tests pass" without checking criteria |
 
 ## Red Flags - STOP
 
@@ -107,6 +108,24 @@ Skip any step = lying, not verifying
 ❌ Trust agent report
 ```
 
+**Beads verification:**
+```
+BEFORE closing bd issue:
+
+1. IDENTIFY: What are the acceptance criteria?
+   bd show <task-id> | grep -A 20 'ACCEPTANCE'
+
+2. CHECK: Does implementation meet each criterion?
+   Go through each criterion, verify with evidence
+
+3. VERIFY: Run verification command for each testable criterion
+
+4. CLOSE: Only when ALL criteria verified
+   bd close <task-id> --reason "All acceptance criteria met: [summary]"
+
+Skip any step = incomplete work, not verified
+```
+
 ## Why This Matters
 
 From 24 failure memories:
@@ -125,6 +144,8 @@ From 24 failure memories:
 - Committing, PR creation, task completion
 - Moving to next task
 - Delegating to agents
+- Closing bd issues
+- Claiming bd acceptance criteria met
 
 **Rule applies to:**
 - Exact phrases
