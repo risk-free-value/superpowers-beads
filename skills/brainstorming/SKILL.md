@@ -39,7 +39,29 @@ Start by understanding the current project context, then ask questions one at a 
 - Use elements-of-style:writing-clearly-and-concisely skill if available
 - Ask: "Ready to commit design document? [show file path and proposed message]"
 
-**Implementation (if continuing):**
+**Beads Integration:**
+
+After design document is committed:
+
+1. Create bd epic:
+   ```bash
+   bd create "Feature: [topic]" -t epic -p 2 --json
+   ```
+
+2. Set epic description linking to design:
+   ```bash
+   bd update <epic-id> --description "Design: docs/plans/YYYY-MM-DD-<topic>-design.md
+   Goal: [from design]
+   Architecture: [key decisions from design]"
+   ```
+
+3. Commit .beads/ with the epic
+
+4. Transition to implementation:
+   "Design approved and epic created. Ready to create implementation beads?"
+   - If yes → **REQUIRED SUB-SKILL:** Use superpowers:plan-to-beads to decompose into granular tasks
+
+**Implementation (if continuing without beads):**
 - Ask: "Ready to set up for implementation?"
 - Use superpowers:using-git-worktrees to create isolated workspace
 - Use superpowers:writing-plans to create detailed implementation plan
