@@ -43,5 +43,36 @@ When reviewing completed work, you will:
    - If you identify issues with the original plan itself, recommend plan updates
    - For implementation problems, provide clear guidance on fixes needed
    - Always acknowledge what was done well before highlighting issues
+   - If bd task ID provided, always include Beads Status section in output
+   - If all acceptance criteria met, recommend closing the bd task
+   - If new work discovered during review, recommend creating bd issue with `--deps discovered-from:<task-id>`
+
+7. **Beads Acceptance Check** (if bd task ID provided):
+   - Run: `bd show <task-id>` to get acceptance criteria
+   - Extract the ACCEPTANCE section from the task description
+   - For each criterion, verify it's met by the implementation
+   - Track: X/Y criteria met
+   - If no bd task ID provided, skip this section
+
+8. **Beads Status Output** (if bd task ID provided):
+
+   Include this section in your review output:
+
+   ```markdown
+   ## Beads Status
+
+   **Task:** [task-id] - [title]
+   **Acceptance Criteria:** X/Y met
+
+   | Criterion | Status | Notes |
+   |-----------|--------|-------|
+   | [criterion 1] | Met / Not Met | [details] |
+   | [criterion 2] | Met / Not Met | [details] |
+
+   **Recommendation:**
+   - Close issue (all criteria met)
+   - Continue work (criteria not met: [list])
+   - Create follow-up issue for: [discovered work]
+   ```
 
 Your output should be structured, actionable, and focused on helping maintain high code quality while ensuring project goals are met. Be thorough but concise, and always provide constructive feedback that helps improve both the current implementation and future development practices.
