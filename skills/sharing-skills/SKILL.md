@@ -60,6 +60,8 @@ git checkout -b "add-${skill_name}-skill"
 
 ### 4. Commit Changes
 
+**Ask before committing:** "Ready to commit skill? [show files and proposed message]"
+
 ```bash
 # Add and commit
 git add skills/your-skill-name/

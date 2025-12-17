@@ -48,12 +48,21 @@ Task tool (general-purpose):
     1. Implement exactly what the task specifies
     2. Write tests (following TDD if task says to)
     3. Verify implementation works
-    4. Commit your work
-    5. Report back
+    4. DO NOT commit - report back for review first
 
     Work from: [directory]
 
     Report: What you implemented, what you tested, test results, files changed, any issues
+```
+
+**After subagent reports:** Ask user to commit before code review:
+```
+Ready to commit Task N? Changes:
+- [files changed from subagent report]
+
+Commit message: [proposed message]
+
+[Proceed / Edit / Skip]
 ```
 
 **Subagent reports back** with summary of work.
@@ -118,7 +127,11 @@ Task 1: Hook installation script
 [Dispatch implementation subagent]
 Subagent: Implemented install-hook with tests, 5/5 passing
 
-[Get git SHAs, dispatch code-reviewer]
+[Ask user to commit]
+You: Ready to commit Task 1? Changes: src/install-hook.ts, tests/install-hook.test.ts
+User: yes
+
+[Commit, get git SHAs, dispatch code-reviewer]
 Reviewer: Strengths: Good test coverage. Issues: None. Ready.
 
 [Mark Task 1 complete]
@@ -128,11 +141,17 @@ Task 2: Recovery modes
 [Dispatch implementation subagent]
 Subagent: Added verify/repair, 8/8 tests passing
 
+[Ask user to commit]
+User: commit
+
 [Dispatch code-reviewer]
 Reviewer: Strengths: Solid. Issues (Important): Missing progress reporting
 
 [Dispatch fix subagent]
 Fix subagent: Added progress every 100 conversations
+
+[Ask user to commit fix]
+User: yes
 
 [Verify fix, mark Task 2 complete]
 

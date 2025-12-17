@@ -79,7 +79,7 @@ def function(input):
 Run: `uv run pytest tests/path/test.py::test_name -v`
 Expected: PASS
 
-**Step 5: Commit**
+**Step 5: Commit** (executor asks user first)
 
 ```bash
 git add tests/path/test.py src/path/file.py
