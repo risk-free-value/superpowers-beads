@@ -75,6 +75,8 @@ Skip any step = lying, not verifying
 
 ## Key Patterns
 
+**Note:** Adjust commands for your project's toolchain (bun test, uv run pytest, cargo test, etc.)
+
 **Tests:**
 ```
 ✅ [Run test command] [See: 34/34 pass] "All tests pass"

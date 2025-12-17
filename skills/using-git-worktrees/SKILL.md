@@ -104,14 +104,14 @@ Auto-detect and run appropriate setup:
 
 ```bash
 # Node.js
-if [ -f package.json ]; then npm install; fi
+if [ -f package.json ]; then bun install; fi
 
 # Rust
 if [ -f Cargo.toml ]; then cargo build; fi
 
 # Python
-if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-if [ -f pyproject.toml ]; then poetry install; fi
+if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
+if [ -f pyproject.toml ]; then uv sync; fi
 
 # Go
 if [ -f go.mod ]; then go mod download; fi
@@ -123,9 +123,9 @@ Run tests to ensure worktree starts clean:
 
 ```bash
 # Examples - use project-appropriate command
-npm test
+bun test
 cargo test
-pytest
+uv run pytest
 go test ./...
 ```
 
@@ -179,8 +179,8 @@ You: I'm using the using-git-worktrees skill to set up an isolated workspace.
 [Check .worktrees/ - exists]
 [Verify .gitignore - contains .worktrees/]
 [Create worktree: git worktree add .worktrees/auth -b feature/auth]
-[Run npm install]
-[Run npm test - 47 passing]
+[Run bun install]
+[Run bun test - 47 passing]
 
 Worktree ready at /Users/jesse/myproject/.worktrees/auth
 Tests passing (47 tests, 0 failures)
