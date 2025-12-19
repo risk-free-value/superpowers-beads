@@ -53,7 +53,7 @@ Check that commands appear:
 ```
 # Should see:
 # /superpowers:brainstorm - Interactive design refinement
-# /superpowers:write-plan - Create implementation plan
+# /superpowers:plan-to-beads - Create beads from approved design
 # /superpowers:execute-plan - Execute plan in batches
 ```
 
@@ -81,9 +81,9 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 1. **brainstorming** - Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation. Saves design document.
 
-2. **using-git-worktrees** - Activates after design approval. Creates isolated workspace on new branch, runs project setup, verifies clean test baseline.
+2. **plan-to-beads** - Activates after design approval. Converts design document into granular, self-documenting beads with full dependency structure. Each bead contains WHAT/WHY/HOW/CONTEXT/ACCEPTANCE.
 
-3. **writing-plans** - Activates with approved design. Breaks work into bite-sized tasks (2-5 minutes each). Every task has exact file paths, complete code, verification steps.
+3. **multi-agent-coordination** - Coordinates concurrent agents via beads status instead of separate git worktrees. Keeps state unified, avoids merge complexity.
 
 4. **subagent-driven-development** or **executing-plans** - Activates with plan. Dispatches fresh subagent per task (same session, fast iteration) or executes in batches (parallel session, human checkpoints).
 
@@ -130,11 +130,6 @@ This fork integrates with [Beads](https://github.com/anthropics/beads) for persi
 - **beads-checkpoint** - Compaction survival at 70%+ token usage
 - **multi-agent-coordination** - Replace git-worktrees with beads coordination
 
-### Deprecated Skills (for beads workflows)
-
-- **writing-plans** - Use plan-to-beads instead
-- **using-git-worktrees** - Use multi-agent-coordination instead
-
 ## What's Inside
 
 ### Skills Library
@@ -150,14 +145,12 @@ This fork integrates with [Beads](https://github.com/anthropics/beads) for persi
 - **verification-before-completion** - Ensure it's actually fixed
 - **defense-in-depth** - Multiple validation layers
 
-**Collaboration** 
+**Collaboration**
 - **brainstorming** - Socratic design refinement
-- **writing-plans** - Detailed implementation plans
 - **executing-plans** - Batch execution with checkpoints
 - **dispatching-parallel-agents** - Concurrent subagent workflows
 - **requesting-code-review** - Pre-review checklist
 - **receiving-code-review** - Responding to feedback
-- **using-git-worktrees** - Parallel development branches
 - **finishing-a-development-branch** - Merge/PR decision workflow
 - **subagent-driven-development** - Fast iteration with quality gates
 

@@ -61,11 +61,6 @@ After design document is committed:
    "Design approved and epic created. Ready to create implementation beads?"
    - If yes → **REQUIRED SUB-SKILL:** Use superpowers:plan-to-beads to decompose into granular tasks
 
-**Implementation (if continuing without beads):**
-- Ask: "Ready to set up for implementation?"
-- Use superpowers:using-git-worktrees to create isolated workspace
-- Use superpowers:writing-plans to create detailed implementation plan
-
 ## Key Principles
 
 - **One question at a time** - Don't overwhelm with multiple questions
