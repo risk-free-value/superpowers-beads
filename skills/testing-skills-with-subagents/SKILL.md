@@ -199,6 +199,7 @@ Write code before test? Delete it. Start over.
 - Don't "adapt" it while writing tests
 - Don't look at it
 - Delete means delete
+- **Ask your human partner before deleting**
 ```
 </After>
 

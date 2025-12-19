@@ -356,6 +356,7 @@ Edit skill without testing? Same violation.
 - Don't keep untested changes as "reference"
 - Don't "adapt" while running tests
 - Delete means delete
+- **Ask your human partner before deleting**
 
 **REQUIRED BACKGROUND:** The superpowers:test-driven-development skill explains why this matters. Same principles apply to documentation.
 
@@ -448,6 +449,7 @@ Write code before test? Delete it. Start over.
 - Don't "adapt" it while writing tests
 - Don't look at it
 - Delete means delete
+- **Ask your human partner before deleting**
 ```
 </Good>
 
@@ -486,7 +488,7 @@ Make it easy for agents to self-check when rationalizing:
 - "It's about spirit not ritual"
 - "This is different because..."
 
-**All of these mean: Delete code. Start over with TDD.**
+**All of these mean: Ask to delete the code. Start over with TDD.**
 ```
 
 ### Update CSO for Violation Symptoms
@@ -599,6 +601,12 @@ Deploying untested skills = deploying untested code. It's a violation of quality
 - [ ] Ask before committing: show files and proposed message, wait for approval
 - [ ] Commit skill to git and push to your fork (if configured)
 - [ ] Consider contributing back via PR (if broadly useful)
+- [ ] **Identify test artifacts for cleanup:**
+  1. Run `git status` to list untracked files
+  2. Identify files created during RED phase testing (typically: test-baseline.md, scratch notes, temporary test logs)
+  3. **Show your human partner the exact list of files** you propose to remove
+  4. **Stop and wait for explicit deletion approval** (CLAUDE.md Rule #1 applies)
+  5. Only after receiving explicit approval: delete each named file individually
 
 ## Discovery Workflow
 
